@@ -15,16 +15,17 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">Giới thiệu</a>
+                        <a href="about">Giới thiệu</a>
                     </li>
                     <li>
-                        <a href="#">Liên hệ</a>
+                        <a href="contact">Liên hệ</a>
                     </li>
                 </ul>
 
-                <form class="navbar-form navbar-left" role="search">
+                <form action="search" method="POST" class="navbar-form navbar-left" role="search">
+                    @csrf
 			        <div class="form-group">
-			          <input type="text" class="form-control" placeholder="Search">
+			          <input type="text" class="form-control" name="keyword" placeholder="Search">
 			        </div>
 			        <button type="submit" class="btn btn-default">Submit</button>
 			    </form>
@@ -39,7 +40,7 @@
                         </li>
                     @else
                         <li>
-                            <a>
+                            <a href="account">
                                 <span class ="glyphicon glyphicon-user"></span>
                                 {{ Auth::user()->name }}
                             </a>
